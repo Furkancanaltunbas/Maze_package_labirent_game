@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:labirent_game/view/level_one_page.dart';
+import 'package:labirent_game/view/start_Page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LevelOnePage(),
+      home: StartPage(),
     );
   }
 }
