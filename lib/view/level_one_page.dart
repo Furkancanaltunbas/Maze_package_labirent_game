@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:labirent_game/view/start_Page.dart';
 import 'package:maze/maze.dart';
 import 'package:kartal/kartal.dart';
 
@@ -14,7 +15,7 @@ class _MyWidgetState extends State<LevelOnePage> {
   late Timer zamanlayici;
   int sure = 0;
 
-    void _refresh(BuildContext context) {
+  void _refresh(BuildContext context) {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
@@ -44,8 +45,11 @@ class _MyWidgetState extends State<LevelOnePage> {
               children: [
                 IconButton(
                   onPressed: () {
-                    
-                    Navigator.pop(context);
+                    zamanlayici.cancel();
+                     Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StartPage()));
                   },
                   icon: Icon(Icons.arrow_back_ios_new),
                   color: Colors.blue,
