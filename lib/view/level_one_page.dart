@@ -14,6 +14,15 @@ class _MyWidgetState extends State<LevelOnePage> {
   late Timer zamanlayici;
   int sure = 0;
 
+    void _refresh(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LevelOnePage(),
+      ),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -27,19 +36,26 @@ class _MyWidgetState extends State<LevelOnePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 43, 78),
       body: SafeArea(
         child: Column(
           children: [
             Row(
               children: [
                 IconButton(
-                    onPressed: () {}, icon: Icon(Icons.arrow_back_ios_new)),
+                  onPressed: () {
+                    
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.arrow_back_ios_new),
+                  color: Colors.blue,
+                ),
                 Spacer(
                   flex: 40,
                 ),
                 Text(
                   "Süre : $sure",
-                  style: TextStyle(fontSize: 30),
+                  style: TextStyle(fontSize: 30, color: Colors.blue),
                 ),
                 Spacer(
                   flex: 60,
@@ -72,9 +88,7 @@ class _MyWidgetState extends State<LevelOnePage> {
                         content: Text('Tebrikler $sure saniyede tamamladınız.'),
                         actions: [
                           TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
+                            onPressed: () => _refresh(context),
                             child: Text(
                               'Tekrar Oyna',
                               style: TextStyle(fontSize: 20),

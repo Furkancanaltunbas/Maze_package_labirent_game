@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:labirent_game/core/constants/widgets/button_widgets/container_button.dart';
+import 'package:labirent_game/view/level_one_page.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -12,6 +14,7 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 43, 78),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -24,10 +27,10 @@ class _StartPageState extends State<StartPage> {
                     boxShadow: [
                       BoxShadow(
                           blurRadius: 7.0,
-                          offset: Offset(7, 10),
-                          color: Colors.black)
+                          offset: Offset(5, 7),
+                          color: Colors.white)
                     ],
-                    color: Colors.blue,
+                    color: Color.fromARGB(255, 25, 125, 232),
                     borderRadius: BorderRadius.circular(20.0)),
                 child: Column(
                   children: [
@@ -46,20 +49,16 @@ class _StartPageState extends State<StartPage> {
                     ),
                     Image.asset("assets/images/maze.png"),
                     SizedBox(
-                      height: context.dynamicHeight(0.18),
+                      height: context.dynamicHeight(0.13),
                     ),
-                    SizedBox(
-                      height: context.dynamicHeight(0.05),
-                      width: context.dynamicWidth(0.5),
-                      child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            "START",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: "RampartOne"),
-                          )),
+                    ContainerButton(
+                      text: "Start",
+                      function: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => LevelOnePage()));
+                      },
                     )
                   ],
                 ),
